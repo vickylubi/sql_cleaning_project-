@@ -30,17 +30,17 @@ FROM laid_off;
 WITH dup_cte AS (
 SELECT ctid,
 ROW_NUMBER () OVER (
-			PARTITION BY company, 
-			            location,
-						industry, 
-						total_laid_off, 
-						percentage_laid_off,
-						stage,
-						country, 
-						funds_raised_millions,
-						date
-			ORDER BY ctid
-						) AS row_num 
+	PARTITION BY company, 
+		     location,
+		     industry, 
+		     total_laid_off, 
+		     percentage_laid_off,
+		     stage,
+		     country, 
+		     funds_raised_millions,
+		     date
+	ORDER BY ctid	
+	) AS row_num 
 FROM layoffs_copy
 )
 
