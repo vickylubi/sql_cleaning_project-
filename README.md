@@ -21,3 +21,19 @@ The goal of this project is to clean the layoffs dataset and make it ready for f
 
 ### Project Output
 The output of this project is a cleaned dataset, free of duplicates, standardized data, and no missing or unreliable values. The dataset is now ready for further analysis or can be exported for use in other applications.
+
+Project Flow 
+
+# 1. Create Table and Import Data
+
+CREATE TABLE laid_off (
+    company TEXT,
+    location TEXT,
+    industry TEXT,
+    total_laid_off INT,
+    percentage_laid_off NUMERIC(3,2),
+    date DATE,
+    stage TEXT,
+    country TEXT,
+    funds_raised_millions NUMERIC(8,1)
+);
