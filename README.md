@@ -24,8 +24,9 @@ The output of this project is a cleaned dataset, free of duplicates, standardize
 
 Project Flow 
 
-# 1. Create Table and Import Data
+### 1. Create Table and Import Data
 
+```sql
 CREATE TABLE laid_off (
     company TEXT,
     location TEXT,
