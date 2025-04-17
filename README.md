@@ -39,6 +39,7 @@ CREATE TABLE laid_off (
     funds_raised_millions NUMERIC(8,1)
 );
 
+
 ### 2. Remove Duplicates
 Identify and remove duplicate rows based on key columns
 ```sql
