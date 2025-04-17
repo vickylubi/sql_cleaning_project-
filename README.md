@@ -56,7 +56,7 @@ DELETE FROM layoffs_copy
 WHERE ctid IN (
     SELECT ctid FROM dup_cte WHERE row_num > 1
 );
-
+```
 ### 3. Standardize Data
 Standardize the industry, location, and country columns to fix inconsistencies.
 ```sql
@@ -108,8 +108,9 @@ WHERE country LIKE '% States%'
 UPDATE layoffs_copy
 SET country = 'United States'
 WHERE country LIKE 'United States%';
-
+```
 ### 4. Handle Null Values
+Update rows with missing values, ensuring that industry is filled based on available information.
 ```sql
 --Industry NULLs
 SELECT *
@@ -141,8 +142,11 @@ FROM layoffs_copy AS t2
 WHERE t1.company = t2.company
   AND (t1.industry IS NULL OR t1.industry = '')
   AND t2.industry IS NOT NULL;
+```
 
-
+### 5. Remove Unnecessary Columns
+Drop columns that are not relevant for analysis.
+```sql
 --Total laid off Nulls and percentage Nulls too 
 SELECT *
 FROM layoffs_copy
@@ -154,3 +158,4 @@ DELETE
 FROM layoffs_copy
 WHERE total_laid_off IS NULL
 AND percentage_laid_off IS NULL;
+```
